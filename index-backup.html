@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVE Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <script>
+    const originalConsoleWarn = console.warn;
+    console.warn = (...args) => {
+      const message = args.join(' ');
+      if (!message.includes('cdn.tailwindcss.com should not be used in production')) {
+        originalConsoleWarn(...args);
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    console.warn = originalConsoleWarn;
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Noto Serif"', 'ui-serif', 'Georgia', 'serif'],
+            display: ['"Noto Serif"', 'ui-serif', 'Georgia', 'serif'],
+          },
+          colors: {
+            surface: '#fdfbf7',
+            'surface-container': '#f7f3ed',
+            'on-surface': '#1a1a17',
+            'on-surface-variant': '#5c5c56',
+            primary: '#111111',
+            'outline-variant': '#e5e1da',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply bg-surface text-on-surface font-sans overflow-x-hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+    
+    .font-display {
+      font-family: theme('fontFamily.serif');
+    }
+    
+    .label-caps {
+      @apply text-[12px] font-semibold uppercase tracking-[0.1em] leading-tight;
+    }
+
+    /* Initial state for JS observer */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .scale-up {
+      opacity: 0;
+      transform: scale(0.98);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .scale-up.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-surface">
+
+  <!-- Top Navbar -->
+  <header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant">
+    <nav class="max-w-[1440px] h-20 mx-auto px-6 md:px-16 lg:px-24 flex items-center justify-between">
+      <div class="font-display text-2xl tracking-tighter">ARCHIVE</div>
+      
+      <div class="hidden md:flex items-center gap-10">
+        <div class="flex gap-8">
+          <a href="#work" class="label-caps opacity-60 hover:opacity-100 transition-opacity border-b border-transparent hover:border-on-surface pb-1">Work</a>
+          <a href="#process" class="label-caps opacity-60 hover:opacity-100 transition-opacity border-b border-transparent hover:border-on-surface pb-1">Process</a>
+          <a href="#about" class="label-caps opacity-60 hover:opacity-100 transition-opacity border-b border-transparent hover:border-on-surface pb-1">About</a>
+          <a href="#contact" class="label-caps opacity-60 hover:opacity-100 transition-opacity border-b border-transparent hover:border-on-surface pb-1">Contact</a>
+        </div>
+        <button class="bg-primary text-surface px-6 py-2 label-caps hover:bg-neutral-800 transition-colors">
+          Inquire
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 px-6">
+      <div class="absolute inset-0 pointer-events-none overflow-hidden fade-up" style="transition-duration: 2s">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 w-full h-full opacity-[0.08] grayscale gap-4 p-4">
+          <div class="relative h-64 md:h-80 lg:h-96 mt-12"><img src="https://images.unsplash.com/photo-1449156001437-37e64b8dfce0?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale" alt=""><div class="absolute inset-0 bg-surface/20"></div></div>
+          <div class="relative h-64 md:h-80 lg:h-96 -mt-12"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale" alt=""><div class="absolute inset-0 bg-surface/20"></div></div>
+          <div class="relative h-64 md:h-80 lg:h-96 mt-12"><img src="https://images.unsplash.com/photo-1518005020251-582c78827ce9?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale" alt=""><div class="absolute inset-0 bg-surface/20"></div></div>
+          <div class="relative h-64 md:h-80 lg:h-96 -mt-12"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale" alt=""><div class="absolute inset-0 bg-surface/20"></div></div>
+          <div class="relative h-64 md:h-80 lg:h-96 mt-12"><img src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale" alt=""><div class="absolute inset-0 bg-surface/20"></div></div>
+          <div class="relative h-64 md:h-80 lg:h-96 -mt-12"><img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover grayscale" alt=""><div class="absolute inset-0 bg-surface/20"></div></div>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface"></div>
+      </div>
+
+      <div class="relative z-10 w-full max-w-4xl text-center">
+        <span class="label-caps tracking-[0.3em] block mb-8 fade-up" style="transition-delay: 0.1s">
+          Digital Artisan Portfolio
+        </span>
+        
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.1] mb-12 fade-up" style="transition-delay: 0.2s">
+          CREATIVE VISION <br /> 
+          <span class="italic">IN EVERY PIXELS</span>
+        </h1>
+
+        <div class="flex items-center justify-center gap-8 fade-up" style="transition-delay: 0.4s">
+          <div class="h-[1px] flex-1 bg-on-surface/20"></div>
+          <p class="font-display text-lg md:text-xl italic text-on-surface-variant shrink-0">
+            Architecting digital experiences through 3D, Video, and AI.
+          </p>
+          <div class="h-[1px] flex-1 bg-on-surface/20"></div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-40 animate-bounce">
+        <i data-lucide="chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- Filter Navigation -->
+    <section class="sticky top-20 z-40 bg-surface border-b border-outline-variant/30 py-8">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12" id="category-filters">
+          <button class="filter-btn label-caps transition-all pb-1 border-b-2 border-primary opacity-100" data-cat="ALL PROJECTS">ALL PROJECTS</button>
+          <button class="filter-btn label-caps transition-all pb-1 border-b-2 border-transparent opacity-40 hover:opacity-100" data-cat="VIDEOS">VIDEOS</button>
+          <button class="filter-btn label-caps transition-all pb-1 border-b-2 border-transparent opacity-40 hover:opacity-100" data-cat="MODELING">MODELING</button>
+          <button class="filter-btn label-caps transition-all pb-1 border-b-2 border-transparent opacity-40 hover:opacity-100" data-cat="3D RENDERING">3D RENDERING</button>
+          <button class="filter-btn label-caps transition-all pb-1 border-b-2 border-transparent opacity-40 hover:opacity-100" data-cat="AI+ RENDERING">AI+ RENDERING</button>
+        </div>
+        
+        <div class="flex items-center gap-4 opacity-40 hover:opacity-100 cursor-pointer transition-opacity">
+          <span class="label-caps text-[10px]">Filter by focus</span>
+          <i data-lucide="settings-2" class="w-4 h-4"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-24 px-6 md:px-16 lg:px-24 max-w-[1440px] mx-auto" id="work">
+      <div class="grid grid-cols-12 gap-8 md:gap-12" id="projects-grid">
+         
+        <div class="col-span-12 md:col-span-8 scale-up" data-category="3D RENDERING">
+          <div class="group cursor-pointer">
+            <div class="relative overflow-hidden border border-outline-variant/30 transition-all duration-700 hover:border-primary aspect-[16/9]">
+              <img src="https://lh3.googleusercontent.com/aida/ADBb0uhpIcDOWk9Qp5oHBDPVQJaOVvG5Vg6gtcDre172FNbiTHFRBWwZOC7UwnhNTLoVontad9LkjRxCHIKFJlyocjpZS-mCaUOpRxQN8l5IpeFW2LOkiWElpEfZeJ3NeN25Ua4bL6FPtTKUUrUYa-Lv0vmejpcd3Pcear6ANoOHRpNZxxv8AnJ2T9DchjwybU7NHMKM7OTU0xbuCP8vsL-j-_42l5q9bcw5PncL5R6yD1rqQ829Rk0aEiEoe9wc6LcqctAoKjJyptt2mg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="NEO-STRUCTURAL FRAGMENTATION"/>
+              <div class="absolute inset-0 bg-on-surface/5 opacity-40 group-hover:opacity-0 transition-opacity"></div>
+            </div>
+            <div class="mt-8 flex justify-between items-start">
+              <div>
+                <span class="label-caps text-[10px] opacity-40 mb-3 block">3D Modeling / Cinematic</span>
+                <h3 class="font-display text-2xl md:text-3xl group-hover:text-primary transition-colors">NEO-STRUCTURAL FRAGMENTATION</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="opacity-20 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-4 scale-up" style="transition-delay: 0.1s" data-category="AI+ RENDERING">
+          <div class="group cursor-pointer">
+            <div class="relative overflow-hidden border border-outline-variant/30 transition-all duration-700 hover:border-primary aspect-[4/5]">
+              <img src="https://lh3.googleusercontent.com/aida/ADBb0ug7NU93ccHoCZOJRR02iCcw0r2DCLNW0_XXvxrBurf_K-uHKOA1-rmY1qoYto1N7f8A_bJF5OgLUkcO8TGO0Vu2Ngybh7kzpnIg6yw2gtfurLEIZak-bpue4i6H864-9T5kns4LAVXxmXAmE2l8Y61mj4tgncRQf1sLdCmAWocLDS9AxQGCyYepohiaIBI47Amp0eJkfQSzXoQNFR8he4pKw1CkOyPDPHRRyFiwRu0KJ1z9iqKGEJGtK6dPpVD-NtyE5MWk1Ncmpw" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="SYNTHETIC VESTIGE"/>
+              <div class="absolute inset-0 bg-on-surface/5 opacity-40 group-hover:opacity-0 transition-opacity"></div>
+            </div>
+            <div class="mt-8 flex justify-between items-start">
+              <div>
+                <span class="label-caps text-[10px] opacity-40 mb-3 block">AI + Rendering</span>
+                <h3 class="font-display text-2xl md:text-3xl group-hover:text-primary transition-colors">SYNTHETIC VESTIGE</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="opacity-20 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-4 scale-up" data-category="VIDEOS">
+          <div class="group cursor-pointer">
+            <div class="relative overflow-hidden border border-outline-variant/30 transition-all duration-700 hover:border-primary aspect-square bg-surface-container">
+              <div class="w-full h-full flex flex-col items-center justify-center p-12 text-center">
+                <div class="mb-6 p-4 border border-on-surface/10 rounded-full animate-[spin_20s_linear_infinite]">
+                  <i data-lucide="video" class="w-12 h-12 text-primary"></i>
+                </div>
+                <h4 class="font-display text-2xl md:text-3xl mb-2">REEL 2024</h4>
+                <p class="opacity-60">Motion Design & Direction</p>
+              </div>
+            </div>
+            <div class="mt-8 flex justify-between items-start">
+              <div>
+                <span class="label-caps text-[10px] opacity-40 mb-3 block">Motion Design & Direction</span>
+                <h3 class="font-display text-2xl md:text-3xl group-hover:text-primary transition-colors">REEL 2024</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-8 scale-up" style="transition-delay: 0.1s" data-category="MODELING">
+          <div class="group cursor-pointer">
+            <div class="relative overflow-hidden border border-outline-variant/30 transition-all duration-700 hover:border-primary aspect-[21/9]">
+              <img src="https://lh3.googleusercontent.com/aida/ADBb0ugPMF8C8nXnJGJCU9tPI1TZtSgg1RPdquFpQ3J_GIduxCnf1nWsiSFSSKMG6A9Y7EL2v3dhjYgmwvM41m-jUGt-jxDrIX3uQnqGz-oSVG0nbrHAANWz5FZRadafIxO7-UMAIK7zm4KhLmXTliQqo0M_w9LDRuErr7ZQ0Rrn0nI0SMkadCXJ1jV3C5aWT_KXJdILPzrVGw1y9ARN9aEch5yemUa9O4nrmPIRStsxh79WoiifvH4KuuFLu-snNzEyBCBRdCQ4hvCOig" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="LITHIC SILENCE: AN EXPLORATION"/>
+              <div class="absolute inset-0 bg-on-surface/5 opacity-40 group-hover:opacity-0 transition-opacity"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-surface/80 via-surface/20 to-transparent p-8 md:p-12 flex flex-col justify-end">
+                <span class="label-caps text-[10px] text-primary mb-2 block">Environment Design</span>
+                <h3 class="font-display text-3xl md:text-4xl max-w-sm">LITHIC SILENCE: AN EXPLORATION</h3>
+              </div>
+            </div>
+            <div class="mt-8 flex justify-between items-start">
+              <div>
+                <span class="label-caps text-[10px] opacity-40 mb-3 block">Environment Design</span>
+                <h3 class="font-display text-2xl md:text-3xl group-hover:text-primary transition-colors">LITHIC SILENCE: AN EXPLORATION</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="opacity-20 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-surface-container border-y border-outline-variant/30 py-32 overflow-hidden" id="about">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 items-center">
+        <div class="md:col-span-5 fade-up">
+          <h2 class="font-display text-4xl md:text-5xl leading-tight mb-12 uppercase tracking-tight">
+            PRECISION MEETS <br /> IMAGINATION
+          </h2>
+          <p class="text-xl leading-relaxed text-on-surface-variant mb-12">
+            I am a digital artist dedicated to the pursuit of visual perfection. By bridging the gap between traditional 3D pipelines and cutting-edge AI technologies, I create immersive worlds and digital assets that redefine architectural luxury.
+          </p>
+          <button class="group inline-flex items-center gap-6 py-4 px-8 border border-on-surface label-caps hover:bg-on-surface hover:text-surface transition-all">
+            View Full CV
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i>
+          </button>
+        </div>
+
+        <div class="md:col-span-6 md:col-start-7 fade-up" style="transition-delay: 0.2s">
+          <div class="relative aspect-[16/10] bg-surface border border-outline-variant/30 p-12 flex flex-col justify-between shadow-sm">
+            <div class="flex justify-between items-start">
+              <div class="w-12 h-[2px] bg-primary"></div>
+              <span class="label-caps text-[10px] opacity-40">FOUNDED 2018</span>
+            </div>
+            
+            <h3 class="font-display text-4xl md:text-5xl italic leading-tight">
+              "EVERY PIXEL <br /> TELLS A STORY"
+            </h3>
+            
+            <div class="flex justify-end pt-12">
+                <div class="w-24 h-[1px] bg-outline-variant/50"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="py-32 px-6 md:px-16 lg:px-24 max-w-[1440px] mx-auto" id="process">
+      <div class="text-center mb-24 fade-up">
+        <span class="label-caps tracking-[0.2em] opacity-40 block mb-6">TECH STACK</span>
+        <h2 class="font-display text-4xl md:text-5xl uppercase">Crafted with Architectural Rigor</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Stack 1 -->
+        <div class="fade-up p-12 border border-outline-variant/20 hover:border-primary transition-colors flex flex-col items-center text-center group" style="transition-delay: 0s">
+          <div class="mb-8 p-4 bg-surface-container opacity-40 group-hover:opacity-100 group-hover:bg-primary group-hover:text-surface transition-all">
+            <i data-lucide="box"></i>
+          </div>
+          <h4 class="font-display text-xl mb-4">3D MODELING</h4>
+          <p class="opacity-40">Blender, Maya, ZBrush</p>
+        </div>
+        <!-- Stack 2 -->
+        <div class="fade-up p-12 border border-outline-variant/20 hover:border-primary transition-colors flex flex-col items-center text-center group" style="transition-delay: 0.1s">
+          <div class="mb-8 p-4 bg-surface-container opacity-40 group-hover:opacity-100 group-hover:bg-primary group-hover:text-surface transition-all">
+            <i data-lucide="cloud"></i>
+          </div>
+          <h4 class="font-display text-xl mb-4">RENDERING</h4>
+          <p class="opacity-40">Unreal Engine 5, Octane, Cycles</p>
+        </div>
+        <!-- Stack 3 -->
+        <div class="fade-up p-12 border border-outline-variant/20 hover:border-primary transition-colors flex flex-col items-center text-center group" style="transition-delay: 0.2s">
+          <div class="mb-8 p-4 bg-surface-container opacity-40 group-hover:opacity-100 group-hover:bg-primary group-hover:text-surface transition-all">
+            <i data-lucide="monitor"></i>
+          </div>
+          <h4 class="font-display text-xl mb-4">AI GENERATION</h4>
+          <p class="opacity-40">Stable Diffusion, Midjourney, ComfyUI</p>
+        </div>
+        <!-- Stack 4 -->
+        <div class="fade-up p-12 border border-outline-variant/20 hover:border-primary transition-colors flex flex-col items-center text-center group" style="transition-delay: 0.3s">
+          <div class="mb-8 p-4 bg-surface-container opacity-40 group-hover:opacity-100 group-hover:bg-primary group-hover:text-surface transition-all">
+            <i data-lucide="video"></i>
+          </div>
+          <h4 class="font-display text-xl mb-4">POST-PROD</h4>
+          <p class="opacity-40">After Effects, DaVinci Resolve</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container py-32 border-t border-outline-variant/30" id="contact">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-16 lg:px-24">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 mb-32">
+        <div class="md:col-span-4">
+          <div class="font-display text-3xl md:text-4xl mb-12 h-10">ARCHIVE</div>
+          <p class="opacity-60 max-w-xs leading-relaxed mb-12">
+            A digital art practice focused on the intersection of architecture, cinema, and artificial intelligence.
+          </p>
+          <div class="flex gap-10 flex-wrap">
+            <a href="#" class="label-caps text-[10px] opacity-40 hover:opacity-100 flex items-center gap-2 transition-opacity"><i data-lucide="at-sign" class="w-4 h-4"></i> Instagram</a>
+            <a href="#" class="label-caps text-[10px] opacity-40 hover:opacity-100 flex items-center gap-2 transition-opacity"><i data-lucide="briefcase" class="w-4 h-4"></i> LinkedIn</a>
+            <a href="#" class="label-caps text-[10px] opacity-40 hover:opacity-100 flex items-center gap-2 transition-opacity"><i data-lucide="code" class="w-4 h-4"></i> Github</a>
+            <a href="#" class="label-caps text-[10px] opacity-40 hover:opacity-100 flex items-center gap-2 transition-opacity"><i data-lucide="mail" class="w-4 h-4"></i> Email</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 md:col-start-7">
+          <h5 class="label-caps tracking-[0.2em] mb-12">Navigation</h5>
+          <ul class="space-y-6">
+            <li><a href="#work" class="opacity-40 hover:opacity-100 transition-opacity">Work</a></li>
+            <li><a href="#process" class="opacity-40 hover:opacity-100 transition-opacity">Process</a></li>
+            <li><a href="#about" class="opacity-40 hover:opacity-100 transition-opacity">About</a></li>
+            <li><a href="#contact" class="opacity-40 hover:opacity-100 transition-opacity">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 md:col-start-9">
+          <h5 class="label-caps tracking-[0.2em] mb-12">Newsletter</h5>
+          <p class="opacity-40 mb-10">Stay updated with the latest projects and technological insights.</p>
+          <form class="relative group" onsubmit="event.preventDefault()">
+            <input 
+              type="email" 
+              placeholder="YOUR EMAIL ADDRESS"
+              class="w-full bg-transparent border-b border-outline-variant/50 py-4 label-caps placeholder:opacity-20 focus:outline-none focus:border-primary transition-colors"
+            />
+            <button class="absolute right-0 bottom-4 opacity-20 group-focus-within:opacity-100 transition-opacity">
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-12 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-8 text-[12px] opacity-20">
+        <span>© 2024 ARCHIVE. Built with architectural precision.</span>
+        <span class="label-caps text-[10px]">Global Creative Studio</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up, .scale-up').forEach((el) => {
+      observer.observe(el);
+      // Trigger animations for elements already in viewport quickly
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, 50);
+    });
+
+    // Simple Filter Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('#projects-grid > div');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active class
+        filterBtns.forEach(b => {
+          b.classList.remove('border-primary', 'opacity-100');
+          b.classList.add('border-transparent', 'opacity-40');
+        });
+        btn.classList.add('border-primary', 'opacity-100');
+        btn.classList.remove('border-transparent', 'opacity-40');
+
+        const filter = btn.getAttribute('data-cat');
+
+        projects.forEach(project => {
+          const category = project.getAttribute('data-category');
+          if (filter === 'ALL PROJECTS' || category === filter || (filter === 'MODELING' && category && category.includes('Modeling'))) {
+            project.style.display = 'block';
+            project.classList.remove('visible'); // re-trigger animation
+            setTimeout(() => project.classList.add('visible'), 50);
+          } else {
+            project.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
